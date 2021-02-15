@@ -7,7 +7,7 @@ import dotenv
 
 app = Flask(__name__)
 dotenv.load_dotenv(dotenv.find_dotenv()) 
-os.environ.get("FLASK_SECRET")
+app.config["SECRET_KEY"] = os.environ.get("FLASK_SECRET")
 app.config['SQLALCHEMY_DATABASE_URI'] ='sqlite:///site.db'
 db = SQLAlchemy(app)
 bcrypt = Bcrypt(app)
