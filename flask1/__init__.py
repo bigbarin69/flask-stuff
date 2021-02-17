@@ -8,7 +8,7 @@ import dotenv
 app = Flask(__name__)
 dotenv.load_dotenv(dotenv.find_dotenv()) 
 app.config["SECRET_KEY"] = os.environ.get("FLASK_SECRET")
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("SQLALCHEMY_DB")
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URL")
 db = SQLAlchemy(app)
 bcrypt = Bcrypt(app)
 login_manager = LoginManager(app)
