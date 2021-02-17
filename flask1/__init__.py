@@ -6,6 +6,8 @@ import os
 import dotenv
 import requests
 
+dotenv.load_dotenv(dotenv.find_dotenv())
+
 class CustomFlask(Flask):
     """Override default `run` method, to also send a message in Discord when the site is deployed on heroku."""
     def run(self, host=None, port=None, debug=None, load_dotenv=True, **options):
@@ -27,8 +29,6 @@ class CustomFlask(Flask):
 
 # Now instead of using normal Flask, use the custom version
 app = CustomFlask(__name__)
-
-dotenv.load_dotenv(dotenv.find_dotenv())
 
 app.config["SECRET_KEY"] = os.environ.get("FLASK_SECRET")
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URL")
