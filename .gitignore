@@ -1,5 +1,4 @@
 \flask_env
 \.vscode
-*.db
 *\__pycache__
 *\.env
